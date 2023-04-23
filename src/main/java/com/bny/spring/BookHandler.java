@@ -22,10 +22,11 @@ public class BookHandler {
 			.body(BodyInserters.fromValue(bookService.getBookById(id)));
 	}
 	public Mono<ServerResponse> createBook(ServerRequest request) {
-		return request.bodyToMono(Book.class)
-				.flatMap(book -> Mono.just(bookService.createBook(book)))
-				.flatMap(book -> ServerResponse.created(URI.create("/books/" + book.getId()))
-						.contentType(MediaType.APPLICATION_JSON)
-						.body(BodyInserters.fromValue(book)));
+		
+//		
+		return request.bodyToMono(Book.class).flatMap(book -> ServerResponse.created(URI.create("/create"))
+				.contentType(MediaType.APPLICATION_JSON).bodyValue(bookService.createBook(book)));
+				
+//		
 	}
 }

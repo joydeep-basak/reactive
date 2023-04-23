@@ -19,6 +19,6 @@ public class BookWebClient {
 				.bodyValue(new Book("Android"))
 				.exchange()
 		        .flatMap(res -> res.bodyToMono(Book.class))
-				.subscribe(book -> System.out.println("POST: " + book.getId() + ", " + book.getName())); 
+				.subscribe(book -> System.out.println(book)); 
 	}	
 }

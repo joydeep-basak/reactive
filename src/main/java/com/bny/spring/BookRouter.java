@@ -14,7 +14,8 @@ public class BookRouter {
 	public RouterFunction<ServerResponse> root(BookHandler bookHandler) {
 		return RouterFunctions.route()
 		  .GET("/books/{id}", RequestPredicates.accept(MediaType.TEXT_PLAIN), bookHandler::getBookById)
-		  .POST("/create", RequestPredicates.contentType(MediaType.APPLICATION_JSON), bookHandler::createBook)
+		  .POST("/create", RequestPredicates.accept(MediaType.APPLICATION_JSON).
+				  and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), bookHandler::createBook)
 		  .build();
 	}
 }
