@@ -1,4 +1,0 @@
-com\bny\spring\Application.class
-com\bny\spring\component\HelloWorldHandler.class
-com\bny\spring\component\HelloWorldRouter.class
-com\bny\spring\client\HelloWorldWebClient.class
